@@ -1,0 +1,25 @@
+module.exports = {
+  root: true,
+  parser: '@typescript-eslint/parser',
+  parserOptions: { ecmaVersion: 2021, sourceType: 'module', ecmaFeatures: { jsx: true } },
+  plugins: ['@typescript-eslint'],
+  extends: ['eslint:recommended', 'plugin:@typescript-eslint/recommended'],
+  env: { es2021: true, node: true, browser: true, jest: true },
+  globals: {
+    __DEV__: 'readonly',
+    setTimeout: 'readonly',
+    clearTimeout: 'readonly',
+    setInterval: 'readonly',
+    clearInterval: 'readonly',
+    requestAnimationFrame: 'readonly',
+    cancelAnimationFrame: 'readonly',
+    console: 'readonly',
+  },
+  ignorePatterns: ['node_modules/', 'babel.config.js', 'jest.config.js', 'metro.config.js', '*.config.js'],
+  rules: {
+    '@typescript-eslint/no-explicit-any': 'off',
+    '@typescript-eslint/no-unused-vars': ['warn', { argsIgnorePattern: '^_', varsIgnorePattern: '^(React|_)' }],
+    '@typescript-eslint/no-require-imports': 'off',
+    'no-undef': 'off',
+  },
+};
